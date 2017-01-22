@@ -1,16 +1,14 @@
 # == Schema Information
 #
-# Table name: articles
+# Table name: tags
 #
 #  id         :integer          not null, primary key
-#  title      :string
-#  body       :text
+#  name       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class Article < ApplicationRecord
-  has_many :comments
+class Tag < ApplicationRecord
   has_many :taggings
-  has_many :tags, through: :taggings
+  has_many :articles, through: :taggings
 end
